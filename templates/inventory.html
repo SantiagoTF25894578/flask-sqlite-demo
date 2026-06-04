@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow-lg border-0 bg-dark text-light p-4 mb-5">
+
+  <h2 class="mb-4 text-info">
+    Biblioteca de Clientes
+  </h2>
+
+  <table id="data" class="table table-dark table-striped table-hover">
+
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Videojuego</th>
+        <th>Género</th>
+        <th>Plataforma</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {% for game in games %}
+      <tr>
+        <td>{{ game.cliente }}</td>
+        <td>{{ game.videojuego }}</td>
+        <td>{{ game.genero }}</td>
+        <td>{{ game.plataforma }}</td>
+        <td>{{ game.precio }}</td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+
+  </table>
+
+</div>
+
+<div class="card bg-secondary text-light border-0 p-4 mb-5">
+
+  <h3 class="mb-4">
+    Comentarios y Conclusiones
+  </h3>
+
+  <form method="POST" action="/comment">
+
+    <div class="mb-3">
+
+      <input
+        type="text"
+        name="nombre"
+        class="form-control"
+        placeholder="Tu nombre"
+        required>
+
+    </div>
+
+    <div class="mb-3">
+
+      <textarea
+        name="comentario"
+        class="form-control"
+        rows="4"
+        placeholder="Escribe tu comentario..."
+        required></textarea>
+
+    </div>
+
+    <button type="submit" class="btn btn-info">
+      Publicar Comentario
+    </button>
+
+  </form>
+
+</div>
+
+<div class="card bg-dark text-light border-0 p-4">
+
+  <h3 class="mb-4 text-info">
+    Comentarios Publicados
+  </h3>
+
+  {% for comment in comments %}
+
+  <div class="border-bottom border-secondary mb-3 pb-3">
+
+    <h5>
+      {{ comment.nombre }}
+    </h5>
+
+    <p>
+      {{ comment.comentario }}
+    </p>
+
+  </div>
+
+  {% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+  $(document).ready(function () {
+
+    $('#data').DataTable();
+
+  });
+
+</script>
+
+{% endblock %}

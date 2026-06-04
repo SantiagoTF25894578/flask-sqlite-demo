@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>{{ title }}</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+
+  <style>
+
+    body{
+      background-color:#0f1117;
+      color:white;
+      font-family:Arial;
+    }
+
+    h1{
+      color:#00d9ff;
+      font-weight:bold;
+    }
+
+    .navbar-brand{
+      color:#00d9ff !important;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+    .card{
+      border-radius:15px;
+    }
+
+    table{
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-black shadow mb-5">
+
+  <div class="container">
+
+    <span class="navbar-brand">
+      Chronosys Studios
+    </span>
+
+  </div>
+
+</nav>
+
+<div class="container">
+
+  <h1 class="mb-4">
+    {{ title }}
+  </h1>
+
+  {% block content %}{% endblock %}
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
